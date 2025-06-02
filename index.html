@@ -251,34 +251,68 @@
     </section>
     
     <!-- Demo Reel Section -->
-    <section id="demo-reel" class="py-20 bg-gradient-to-b from-black to-gray-900 relative">
-        <div class="section-divider"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="title-font text-4xl md:text-5xl text-white mb-4">DEMO REEL</h2>
-                <div class="w-20 h-1 bg-[#8c062a] mx-auto mb-6"></div>
-                <p class="text-gray-300 max-w-2xl mx-auto">A showcase of my latest and greatest visual effects work for games</p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto bg-black bg-opacity-50 p-2 rounded-lg border border-gray-800">
-                <!-- Video placeholder - replace with your actual video embed code -->
-                <div class="aspect-w-16 aspect-h-9 relative">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black">
-                        <div class="eye-icon animate-pulse"></div>
-                    </div>
-                    <iframe class="w-full h-full min-h-[400px]" src="https://www.youtube.com/embed/SlMXbHtpM3E" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="mt-6 flex flex-wrap justify-center gap-4">
-                    <button class="bg-[#8c062a] text-white px-4 py-2 rounded flex items-center">
-                        <i class="fas fa-download mr-2"></i> Download Reel
-                    </button>
-                    <button class="bg-transparent border border-[#8c062a] text-white px-4 py-2 rounded flex items-center">
-                        <i class="fas fa-eye mr-2"></i> View Breakdown
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="demo-reel" class="py-20 bg-gradient-to-b from-black to-gray-900 relative">
+  <div class="section-divider"></div>
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="title-font text-4xl md:text-5xl text-white mb-4">DEMO REEL</h2>
+      <div class="w-20 h-1 bg-[#8c062a] mx-auto mb-6"></div>
+      <p class="text-gray-300 max-w-2xl mx-auto">
+        A showcase of my latest and greatest visual effects work for games
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-black bg-opacity-50 p-2 rounded-lg border border-gray-800 relative">
+      <!-- Loading Spinner Overlay -->
+      <div id="video-loader" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80 z-10 rounded-lg">
+        <div class="loader ease-linear rounded-full border-4 border-t-[#8c062a] border-gray-800 h-12 w-12 animate-spin"></div>
+      </div>
+
+      <!-- YouTube Video Embed -->
+      <div class="aspect-w-16 aspect-h-9 relative z-0">
+        <iframe
+          id="demo-video"
+          class="w-full h-full min-h-[400px] z-0 rounded-lg"
+          src="https://www.youtube.com/embed/SlMXbHtpM3E"
+          title="Demo Reel"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-6 flex flex-wrap justify-center gap-4 bg-black bg-opacity-40 p-4 rounded-lg border border-gray-700">
+        <button class="bg-[#8c062a] hover:bg-[#a10a35] transition text-white px-6 py-2 rounded-lg flex items-center shadow-md">
+          <i class="fas fa-download mr-2"></i> Download Reel
+        </button>
+        <button class="border border-[#8c062a] text-white hover:bg-[#8c062a] transition px-6 py-2 rounded-lg flex items-center shadow-md">
+          <i class="fas fa-eye mr-2"></i> View Breakdown
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Loader Style -->
+<style>
+  .loader {
+    border-top-color: #8c062a;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+</style>
+
+<!-- Video Loader Script -->
+<script>
+  const iframe = document.getElementById("demo-video");
+  iframe.onload = () => {
+    const loader = document.getElementById("video-loader");
+    if (loader) loader.style.display = "none";
+  };
+</script>
     
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-gray-900 relative">
